@@ -13,21 +13,19 @@ class Home extends React.Component {
 
   render() {
     const { results = [] } = this.props.data;
-    return results.length
-      ? <h1>
-          {results.map(person=>
-          <div>
-             <h1>
-             {person.gender}
-           </h1>
-           <h1>
-             {person.name.first}
-           </h1>
-           <h1>
-             {person.name.last}
-           </h1>
-           <img src={person.picture.medium} />
-           </div>
+    return results.length ? (
+      <h1 className='container'>
+        {results.map((person) => (
+          <div className='flex'>
+          <label><h1>gender</h1></label>
+            <h3>{person.gender}</h3>
+             <label><h1>first Name</h1></label>
+            <h3>{person.name.first}</h3>
+             <label><h1>last Name</h1></label>
+            <h3>{person.name.last}</h3>
+             <label><h1>Image</h1></label>
+            <img src={person.picture.medium} />
+          </div>
           )}
         </h1>
       : <h1>loading...</h1>;
